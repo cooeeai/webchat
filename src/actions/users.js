@@ -1,4 +1,3 @@
-import Firebase from 'firebase';
 import {
   LOAD_USER,
   LOAD_USER_SUCCESS,

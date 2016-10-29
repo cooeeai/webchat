@@ -82,6 +82,8 @@ function user(state = initialState.user, action) {
             avatar: data.photoURL
           }
         }
+        default:
+          return;
       }
     }
     default:

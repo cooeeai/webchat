@@ -2,7 +2,6 @@ import 'jquery';
 import 'bootstrap-sass';
 import React, { Component, PropTypes } from 'react';
 
-import { APP_NAME } from 'config';
 import { AUTH_ALLOW } from 'constants/authStatus';
 
 import 'styles/Navigation.scss';

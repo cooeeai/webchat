@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { POST_LOGIN_PATH, LOGIN_PATH } from 'config';
+import { LOGIN_PATH, POST_LOGOUT_PATH } from 'config';
 import { AUTH_ALLOW, AUTH_DENY, AUTH_LOGOUT } from 'constants/authStatus';
 import * as authActions from 'actions/auth';
 import * as userActions from 'actions/users';

@@ -4,11 +4,11 @@
   "description": "Web chat for Cooee platform",
   "main": "index.js",
   "scripts": {
-    "start": "gulp run",
-    "build": "gulp webpack",
-    "dist": "gulp dist",
-    "test": "gulp test",
-    "test.watch": "gulp watch:test",
+    "start": "./node_modules/gulp/bin/gulp.js run",
+    "build": "./node_modules/gulp/bin/gulp.js webpack",
+    "dist": "./node_modules/gulp/bin/gulp.js dist",
+    "test": "./node_modules/gulp/bin/gulp.js test",
+    "test.watch": "./node_modules/gulp/bin/gulp.js watch:test",
     "deploy": "firebase deploy"
   },
   "repository": {
@@ -46,12 +46,6 @@
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
-    "babel-eslint": "^7.1.0",
-    "babel-loader": "^6.2.6",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "browser-sync": "^2.17.5",
     "connect-history-api-fallback": "^1.3.0",

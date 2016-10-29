@@ -2,6 +2,10 @@
 
 Web chat module for Cooee.ai. Chat application using React, Redux and Firebase.
 
+[Click here for Demo](https://webchat-6feb4.firebaseapp.com)
+
+![screenshot](/assets/screenshot.png)
+
     git clone https://github.com/cooeeai/webchat
     cd webchat
 
@@ -36,3 +40,24 @@ To add a channel, post:
 To remove a channel, post:
 
     /del-channel my-channel-name
+
+To deploy the app to a hosted environment:
+
+    npm install -g firebase-tools
+    firebase login
+    npm run-script deploy
+    firebase init
+
+    ? What Firebase CLI features do you want to setup for this folder?
+    > Hosting: Configure and deploy Firebase Hosting sites
+
+    ? What do you want to use as your public directory?
+    > dist
+
+    ? Configure as a single-page app (rewrite all urls to /index.html)?
+    > Yes
+
+    ? File dist/index.html already exists. Overwrite?
+    > No
+
+    firebase deploy

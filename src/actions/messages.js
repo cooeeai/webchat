@@ -1,4 +1,3 @@
-import Firebase from 'firebase';
 import {
   LOAD_MESSAGES,
   LOAD_MESSAGES_SUCCESS,

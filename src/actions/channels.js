@@ -1,4 +1,3 @@
-import Firebase from 'firebase';
 import {
   LOAD_CHANNELS,
   LOAD_CHANNELS_SUCCESS,
