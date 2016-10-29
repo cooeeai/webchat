@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+export FIREBASE_API_KEY="XX"
+export FIREBASE_AUTH_DOMAIN="XX"
+export FIREBASE_URL="XX"
+export FIREBASE_STORAGE_BUCKET="XX"
+export FIREBASE_MESSAGING_SENDER_ID="XX"
