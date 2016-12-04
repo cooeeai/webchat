@@ -4,7 +4,8 @@ import {
   LOAD_MESSAGES_SUCCESS,
   LOAD_MESSAGES_FAILURE,
   RECEIVE_MESSAGE_SUCCESS,
-  RECEIVE_MESSAGE_FAILURE
+  RECEIVE_MESSAGE_FAILURE,
+  REMOVE_TEMP_MESSAGE
 } from 'constants/actionTypes/messages';
 
 export const messageInitialState = {
@@ -27,7 +28,8 @@ export default function messagesReducer(state = {}, action) {
     case LOAD_MESSAGES_SUCCESS:
     case LOAD_MESSAGES_FAILURE:
     case RECEIVE_MESSAGE_SUCCESS:
-    case RECEIVE_MESSAGE_FAILURE: {
+    case RECEIVE_MESSAGE_FAILURE:
+    case REMOVE_TEMP_MESSAGE: {
       const key = action.channel;
       return {
         ...state,
@@ -79,6 +81,9 @@ function entities(state = messageInitialState.entities, action) {
       return { ...action.payload };
     case RECEIVE_MESSAGE_SUCCESS:
       return { ...state, ...action.payload };
+    case REMOVE_TEMP_MESSAGE:
+      const { FIXME, ...y } = state;
+      return y;
     default:
       return state;
   }

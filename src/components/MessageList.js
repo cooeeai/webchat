@@ -3,6 +3,9 @@ import { findDOMNode } from 'react-dom';
 import last from 'lodash/last';
 import MessageItem from 'components/MessageItem';
 import MessagesLoading from 'components/MessagesLoading';
+import HeroCard from 'components/HeroCard';
+import QuickReply from 'components/QuickReply';
+import Address from 'components/Address';
 
 import 'styles/MessageList';
 
@@ -11,7 +14,9 @@ export default class MessageList extends Component {
     auth: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
     messages: PropTypes.array.isRequired,
-    users: PropTypes.object.isRequired
+    users: PropTypes.object.isRequired,
+    submitAction: PropTypes.func.isRequired,
+    postbackAction: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,11 +49,33 @@ export default class MessageList extends Component {
     node.scrollTop = node.scrollHeight;
   }
 
+  renderItem(message, users, submitAction, postbackAction) {
+    if (message.type == 'carousel') {
+      return (
+        <HeroCard { ...message } user={ users[message.userId] } submitAction={ submitAction } postbackAction={ postbackAction }/>
+      );
+    } else if (message.type == 'quickReply') {
+      return (
+        <QuickReply { ...message } user={ users[message.userId] } submitAction={ submitAction }/>
+      );
+    } else if (message.type == 'address') {
+      return (
+        <Address { ...message } user={ users[message.userId] }/>
+      );
+    } else {
+      return (
+        <MessageItem { ...message } user={ users[message.userId] }/>
+      );
+    }
+  }
+
   render() {
     const {
       loading,
       messages,
-      users
+      users,
+      submitAction,
+      postbackAction
     } = this.props;
     return (
       <div className="messages-list">
@@ -59,7 +86,7 @@ export default class MessageList extends Component {
           {
             messages.map((message) =>
               <li key={ message.id }>
-                <MessageItem { ...message } user={ users[message.userId] }/>
+                { this.renderItem(message, users, submitAction, postbackAction) }
               </li>
             )
           }

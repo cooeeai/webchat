@@ -1,0 +1,38 @@
+{
+  "recipient": {
+    "id": "1053114564742022"
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+          "item_url": "https://www.telstra.com.au/mobile-phones/mobiles-on-a-plan/iphone-6s",
+          "subtitle": "4.7 inch (diagonal) Retina HD display",
+          "image_url": "https://tombot1.ngrok.io/img/iphone-6s-front-spacegrey-400.jpg",
+          "buttons": [{
+            "type": "web_url",
+            "title": "More info",
+            "url": "https://www.telstra.com.au/mobile-phones/mobiles-on-a-plan/iphone-6s"
+          }, {
+            "type": "postback",
+            "title": "Buy",
+            "payload": "Order for iPhone 6s 64GB Space Grey"
+          }],
+          "title": "iPhone 6s 64GB Space Grey"
+        }, {
+          "item_url": "https://www.telstra.com.au/mobile-phones/mobiles-on-a-plan/iphone-6s",
+          "subtitle": "5.5 inch (diagonal) Retina HD display",
+          "image_url": "https://tombot1.ngrok.io/img/iphone-6s-plus-front-silver-400.jpg",
+          "buttons": [{
+            "type": "postback",
+            "title": "Buy",
+            "payload": "Order for iPhone 6s Plus 64GB Silver"
+          }],
+          "title": "iPhone 6s Plus 64GB Silver"
+        }]
+      }
+    }
+  }
+}

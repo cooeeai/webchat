@@ -28,7 +28,7 @@ export default class MessageItem extends Component {
             <span className="name">{ user.name }</span>
         }
         <span className="info">{ `${moment(timestamp).format('MM/DD HH:mm')}` }</span>
-        <div className="text">{ text }</div>
+        <div className="text" dangerouslySetInnerHTML={{__html: text.replace(/\n/g, '<br>')}}/>
       </div>
     );
   }

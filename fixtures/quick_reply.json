@@ -1,0 +1,17 @@
+{
+  "recipient": {
+    "id": "1053114564742022"
+  },
+  "message": {
+    "text": "Is this correct?\nPlan Choice: 12 mo - BYO mobile - 10 GB",
+    "quick_replies": [{
+      "content_type": "text",
+      "title": "Yes",
+      "payload": ""
+    }, {
+      "content_type": "text",
+      "title": "No",
+      "payload": ""
+    }]
+  }
+}

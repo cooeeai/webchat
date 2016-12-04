@@ -104,7 +104,7 @@ export default class MessageContainer extends Component {
   }
 
   render() {
-    const { activeChannel, auth, channels, messages, users, postMessage, addChannel, deleteChannel } = this.props;
+    const { activeChannel, auth, channels, messages, users, postMessage, postback, removeTempMessage, addChannel, deleteChannel } = this.props;
     if (!auth.authenticated) {
       return (<div/>);
     }
@@ -113,6 +113,23 @@ export default class MessageContainer extends Component {
         forEach(messages.entities, (m, k) => { m.id = k }),
         m => m.timestamp
       );
+
+    const handleSubmit = (text, userId) => {
+      if (text.startsWith('/add-channel')) {
+        addChannel(text.substring(13))
+      } else if (text.startsWith('/del-channel')) {
+        deleteChannel(text.substring(13))
+      } else {
+        postMessage(activeChannel, text, userId)
+      }
+      if (userId) {
+        removeTempMessage(activeChannel)
+      }
+    };
+
+    const handlePostback = (text, payload, userId) => {
+      postback(activeChannel, text, payload, userId)
+    };
 
     return (
       <div className="messages-container">
@@ -125,21 +142,15 @@ export default class MessageContainer extends Component {
               auth={ auth }
               loading={ messages.loading }
               messages={ messageList }
-              users={ users.entities }/>
+              users={ users.entities }
+              submitAction={ handleSubmit }
+              postbackAction={ handlePostback }/>
             <div className="main-footer">
               {
                 activeChannel &&
                   <MessageForm
                     auth={ auth }
-                    submitAction={ (text) => {
-                      if (text.startsWith('/add-channel')) {
-                        addChannel(text.substring(13))
-                      } else if (text.startsWith('/del-channel')) {
-                        deleteChannel(text.substring(13))
-                      } else {
-                        postMessage(activeChannel, text)
-                      }
-                    }}/>//{ (text) => postMessage(activeChannel, text) }/>
+                    submitAction={ handleSubmit }/>
               }
             </div>
           </div>
