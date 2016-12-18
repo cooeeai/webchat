@@ -43,7 +43,7 @@ export default class Address extends Component {
               key: GOOGLE_MAPS_API_KEY,
               language: 'en'
             }}
-            defaultCenter={ {lat: latitude, lng: longitude} }
+            defaultCenter={ { lat: latitude, lng: longitude } }
             defaultZoom={ 15 }>
             <Place lat={ latitude } lng={ longitude } text={ 'A' }/>
           </GoogleMap>

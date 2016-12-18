@@ -6,6 +6,7 @@ import MessagesLoading from 'components/MessagesLoading';
 import HeroCard from 'components/HeroCard';
 import QuickReply from 'components/QuickReply';
 import Address from 'components/Address';
+import StoreLocations from 'components/StoreLocations';
 
 import 'styles/MessageList';
 
@@ -50,7 +51,11 @@ export default class MessageList extends Component {
   }
 
   renderItem(message, users, submitAction, postbackAction) {
-    if (message.type == 'carousel') {
+    if (message.layout && message.layout.name === 'show-locations') {
+      return (
+        <StoreLocations { ...message } user={ users[message.userId] }/>
+      );
+    } else if (message.type == 'carousel') {
       return (
         <HeroCard { ...message } user={ users[message.userId] } submitAction={ submitAction } postbackAction={ postbackAction }/>
       );

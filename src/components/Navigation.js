@@ -20,7 +20,10 @@ export default class Navigation extends Component {
     const { authenticated, authenticating, user } = this.props.auth;
     return (
       <div className="navigation navbar navbar-default navbar-fixed-top" role="navigation">
-        <a className="navbar-brand header-title" href="/">Cooee webchat</a>
+        <a className="navbar-brand">
+          <img src="/assets/telstra.png" style={{ height: 40, marginTop: -10 }}/>
+        </a>
+        <a className="navbar-brand header-title" href="/">Telstra Webchat</a>
         {
           authenticating &&
             <a className="navbar-brand pull-right">

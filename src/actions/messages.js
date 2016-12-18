@@ -143,7 +143,27 @@ export function registerMessageListeners(channel) {
         const botUserId = 'tombot';
         let data;
         if (isObject(value)) {
-          if (value.address) {
+          if (value.message && value.message.layout.name === 'show-locations') {
+            setTimeout(() => {
+              firebase.database().ref(`messages/${channel}`)
+                .push({
+                  ...value.message,
+                  timestamp: firebase.database.ServerValue.TIMESTAMP
+                }, (err) => {
+                  if (!err) {
+                    dispatch({
+                      type: POST_MESSAGE_SUCCESS
+                    });
+                  } else {
+                    console.error('postMessage: ', err);
+                    dispatch({
+                      type: POST_MESSAGE_FAILURE,
+                      payload: err
+                    });
+                  }
+                });
+            }, 2000);
+          } else if (value.address) {
             console.log(value);
             data = {
               type: 'address',
@@ -153,23 +173,25 @@ export function registerMessageListeners(channel) {
               timestamp: Date.now(),
               userId: botUserId
             };
-            firebase.database().ref(`messages/${channel}`)
-              .push({
-                ...data,
-                timestamp: firebase.database.ServerValue.TIMESTAMP
-              }, (err) => {
-                if (!err) {
-                  dispatch({
-                    type: POST_MESSAGE_SUCCESS
-                  });
-                } else {
-                  console.error('postMessage: ', err);
-                  dispatch({
-                    type: POST_MESSAGE_FAILURE,
-                    payload: err
-                  });
-                }
-              });
+            setTimeout(() => {
+              firebase.database().ref(`messages/${channel}`)
+                .push({
+                  ...data,
+                  timestamp: firebase.database.ServerValue.TIMESTAMP
+                }, (err) => {
+                  if (!err) {
+                    dispatch({
+                      type: POST_MESSAGE_SUCCESS
+                    });
+                  } else {
+                    console.error('postMessage: ', err);
+                    dispatch({
+                      type: POST_MESSAGE_FAILURE,
+                      payload: err
+                    });
+                  }
+                });
+            }, 2000);
           } else if (value.message.attachment) {
             const cards = value.message.attachment.payload.elements.map((el) => {
               return {
