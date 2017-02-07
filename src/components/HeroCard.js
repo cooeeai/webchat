@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
 import 'bootstrap/js/carousel';
+import $ from 'jquery'
 
 import 'styles/HeroCard.scss';
 

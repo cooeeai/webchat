@@ -9,12 +9,25 @@
       width: 40px;
       height: 40px;
       border-radius: 4px;
+      display: none;
+    }
+
+    @media (min-width: 576px) {
+      img {
+        display: block;
+      }
     }
   }
 
   .name, .text {
     position: relative;
-    padding-left: 50px;
+    padding-left: 0;
+  }
+
+  @media (min-width: 576px) {
+    .name, .text {
+      padding-left: 50px;
+    }
   }
 
   .name {

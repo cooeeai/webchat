@@ -112,7 +112,7 @@ export function loadMessages(channel) {
 
 export function registerMessageListeners(channel) {
   return (dispatch, getState) => {
-    const { auth, firebase, messages } = getState();
+    const { firebase, messages } = getState();
     const ref = firebase.database().ref(`messages/${channel}`);
     ref.limitToLast(5).on('child_added', (snapshot) => {
       const channelMessages = messages[channel];

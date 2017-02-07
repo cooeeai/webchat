@@ -81,9 +81,10 @@ function entities(state = messageInitialState.entities, action) {
       return { ...action.payload };
     case RECEIVE_MESSAGE_SUCCESS:
       return { ...state, ...action.payload };
-    case REMOVE_TEMP_MESSAGE:
+    case REMOVE_TEMP_MESSAGE: {
       const { FIXME, ...y } = state;
       return y;
+    }
     default:
       return state;
   }

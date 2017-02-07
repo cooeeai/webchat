@@ -13,8 +13,28 @@
 
 .header {
   height: 51px;
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .header {
+    display: block;
+  }
 }
 
 .fa, .glyphicon {
   margin-right: 5px;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+:-moz-placeholder {
+  font-style: italic;
+}
+::-moz-placeholder {
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  font-style: italic;
 }

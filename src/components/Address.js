@@ -44,11 +44,18 @@ export default class Address extends Component {
               language: 'en'
             }}
             defaultCenter={ { lat: latitude, lng: longitude } }
-            defaultZoom={ 15 }>
+            defaultZoom={ 15 }
+            options={createMapOptions}>
             <Place lat={ latitude } lng={ longitude } text={ 'A' }/>
           </GoogleMap>
         </div>
       </div>
     );
+  }
+}
+
+function createMapOptions(maps) {
+  return {
+    scrollwheel: false
   }
 }

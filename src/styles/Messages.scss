@@ -8,16 +8,31 @@
     width: $sidebar-width;
     left: 0;
     border-right: 1px solid $gray-lighter;
+    display: none;
   }
 
   .main {
     position: fixed;
     height: 100%;
-    left: $sidebar-width;
+    left: 0;
 
     .main-footer {
-      height: $footer-width;
+      height: 54px;
       padding: 10px;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .sidebar {
+      display: block;
+    }
+
+    .main {
+      left: $sidebar-width;
+
+      .main-footer {
+        width: 100%;
+      }
     }
   }
 }
