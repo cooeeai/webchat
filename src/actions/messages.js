@@ -10,8 +10,9 @@ import {
   RECEIVE_MESSAGE_FAILURE,
   REMOVE_TEMP_MESSAGE
 } from 'constants/actionTypes/messages';
+import { CHAT_SERVER } from '../config'
 
-const ws = new WebSocket("ws://localhost:8080/ws-chat/1?name=markmo")
+const ws = new WebSocket(`ws://${CHAT_SERVER}/ws-chat/1?name=markmo`)
 
 export function postMessage(channel, text, userId) {
   return (dispatch, getState) => {

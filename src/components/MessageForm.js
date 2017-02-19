@@ -40,7 +40,7 @@ export default class MessageForm extends Component {
             name="text"
             className="form-control message-text"
             ref="text"
-            placeholder="Type your message"
+            placeholder="Type your message..."
             autoComplete="off"
             autoFocus
             { ...text }/>

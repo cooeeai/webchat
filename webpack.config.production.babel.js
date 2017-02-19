@@ -65,7 +65,8 @@ module.exports = {
         'FIREBASE_URL': JSON.stringify(process.env.FIREBASE_URL),
         'FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
         'FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
-        'GOOGLE_MAPS_API_KEY': JSON.stringify(process.env.GOOGLE_MAPS_API_KEY)
+        'GOOGLE_MAPS_API_KEY': JSON.stringify(process.env.GOOGLE_MAPS_API_KEY),
+        'CHAT_SERVER': JSON.stringify(process.env.CHAT_SERVER)
       }
     }),
     new webpack.ProvidePlugin({
